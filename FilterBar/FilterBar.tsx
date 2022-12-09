@@ -5,6 +5,7 @@ import type { ISortOrder } from "../useProductFilter/getFilteredProducts";
 import type { IFilter } from "../useProductFilter/getFilteredProducts
 import useProductFilter from "../useProductFilter";
 import styles from "./filterbar.module.scss";
+import Checkbox from "../Checkbox/Checkbox";
 
 interface FilterBarProps {
   filters: IFilter[];
@@ -24,19 +25,19 @@ interface FilterBarProps {
 
 const sortOrders: { name: string; value: ISortOrder[] | undefined }[] = [
   {
-    name: "Anbefalt",
+    name: "Recommended",
     value: undefined,
   },
   {
-    name: "Nyeste",
+    name: "Newest",
     value: [{ field: "createdAt", order: "desc" }],
   },
   {
-    name: "Pris (lav til høy)",
+    name: "Price (low to high)",
     value: [{ field: "priceAsNumber", order: "asc" }],
   },
   {
-    name: "Pris (høy til lav)",
+    name: "Price (high to low)",
     value: [{ field: "priceAsNumber", order: "desc" }],
   },
 ];

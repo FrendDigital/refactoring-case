@@ -34,10 +34,10 @@ export const seperateFilters = (filters: IFilter[] | undefined) => {
     "XXL-XXXL": 25,
   };
   sizes?.values.sort((a, b) => weights[a.value] - weights[b.value]);
-  const colors = filters.find((element) => element.field === "pr_colors.name");
+  const colors = filters.find((element) => element.field === "colors.name");
   colors?.values.sort((a, b) => a.value.localeCompare(b.value));
   const compositions = filters.find(
-    (element) => element.field === "pr_compositions.name"
+    (element) => element.field === "compositions.name"
   );
   const categories = filters.find((element) => element.field === "categories");
 
