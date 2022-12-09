@@ -1,0 +1,180 @@
+@use "@/styles/_color";
+@use "@/styles/_font";
+@use "@/styles/_breakpoint";
+@use "@/styles/default";
+@use "@/styles/button";
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin-top: default.$topMargin;
+  position: relative;
+}
+.filter {
+  align-self: center;
+  position: relative;
+  button {
+    @include button.tertiaryBold;
+  }
+}
+
+.categoryList {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    li {
+      @include button.tertiary;
+      &.active {
+        @include button.secondary;
+        cursor: default;
+      }
+    }
+  }
+}
+
+  .sort {
+    align-self: center;
+    position: relative;
+    text-align: right;
+    button {
+      @include button.tertiaryBold;
+    }
+  }
+
+
+.filterMenu {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  max-width: 414px;
+  top: -30px;
+  left: -30px;
+  background-color: color.$white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 28px 29px 30px;
+  .filter {
+    @include button.tertiaryBold;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 37px;
+  }
+  .filterCategory {
+    border-bottom: 1px solid color.$black;
+    padding: 15px 0;
+    .filterName {
+      @include font.Medium;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      &::after {
+        content: "+";
+      }
+    }
+    .filterOptions {
+      display: none;
+      @include font.Medium;
+      font-size: 1.2rem;
+    }
+    &.open {
+      padding: 15px 0 20px;
+      .filterName {
+        &::after {
+          content: "-";
+        }
+      }
+      .filterOptions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        margin-top: 15px;
+      }
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  .footer {
+    padding: 30px 0 0;
+    display: flex;
+    gap: 15px;
+    button {
+      @include button.primary;
+      flex: 1 1 50%;
+    }
+  }
+}
+
+.sortMenu {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  max-width: 280px;
+  top: -30px;
+  right: -30px;
+  background-color: color.$white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  padding: 29px 0 30px;
+  .sort {
+    justify-self: unset;
+    align-self: unset;
+    margin-right: 34px;
+    margin-bottom: 37px;
+  }
+  .item {
+    padding: 15px 30px;
+    &:not(.selected):hover {
+      text-decoration: underline;
+    }
+    &.selected {
+      background-color: color.$black;
+      color: color.$white;
+    }
+  }
+}
+
+@include breakpoint.smallScreen {
+  .bar {
+    
+    margin-top: 15px;
+    flex-wrap: wrap;
+    .filter,
+    .sort {
+      flex: 1;
+      padding: 0;
+      
+   
+    }
+    .categoryList {
+      display: none;
+    }
+  }
+
+  .filterMenu, 
+  .sortMenu {
+    flex-basis: 100%;
+    position: relative;
+    top: 0;
+    left: auto;
+    right: auto;
+    box-shadow: none;
+    padding: 15px;
+    border-top: 1px solid color.$black;
+    max-width: unset;
+    .filter,
+    .sort {
+      display: none;
+    }
+    .footer {
+      padding-top: 15px;
+    }
+  }
+}
