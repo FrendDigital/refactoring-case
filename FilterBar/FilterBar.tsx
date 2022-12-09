@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { seperateFilters } from "../useProductFilter";
 import type { ISortOrder } from "../useProductFilter/getFilteredProducts";
-import type { IFilter } from "../useProductFilter/pruneFilters";
+import type { IFilter } from "../useProductFilter/getFilteredProducts
 import useProductFilter from "../useProductFilter";
 import styles from "./filterbar.module.scss";
 

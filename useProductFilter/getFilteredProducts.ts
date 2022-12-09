@@ -1,6 +1,17 @@
 import axios from "axios";
 
-import type { IFilter } from "./pruneFilters";
+
+
+export interface IFilter {
+  field: string;
+  values: {
+    value: string;
+    count: number;
+    filterCount: number;
+    totalCount: number;
+    data: any;
+  }[];
+}
 
 interface getFilteredProductParams {
   category: string[];

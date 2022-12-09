@@ -1,0 +1,34 @@
+@use "@/styles/_color";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  span {
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    vertical-align: middle;
+    border: 1px solid color.$black;
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    display: none;
+  }
+  &.selected {
+    span {
+      background-color: color.$black;
+    }
+  }
+  &.unavailable {
+    opacity: .5;
+    cursor: default;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}

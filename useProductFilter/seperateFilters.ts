@@ -1,4 +1,4 @@
-import type { IFilter } from "./pruneFilters";
+import type { IFilter } from "./getFilteredProducts";
 
 export const seperateFilters = (filters: IFilter[] | undefined) => {
   if (!filters) {
